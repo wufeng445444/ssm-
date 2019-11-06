@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wf.dao.StudentMapper">
+		<select id="getStudentList" resultType="com.wf.bean.Student">
+			select sid,sname,gender,hobby,mark from student
+		</select>
+		<insert id="saveInfo">
+			insert into student (sname,gender,hobby,mark) values (#{sname},#{gender},#{hobby},#{mark})
+		</insert>
+		
+		<delete id="deleteStudentById">
+			delete from student where sid=#{sid}
+		</delete>
+		<select id="getStudentById" resultType="com.wf.bean.Student">
+			select  sid,sname,gender,hobby,mark from student
+			where sid=#{sid}
+		</select>
+		<update id="updateInfo">
+		update student set sname=#{sname},gender=#{gender},hobby=#{hobby},mark=#{mark }where sid=#{sid}
+		</update>
+</mapper>
